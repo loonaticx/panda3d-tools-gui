@@ -2561,7 +2561,7 @@ class main(wx.Frame):
 
         dirname = self.destProjectFolder
         filename = ''
-        dlg = wx.FileDialog(self, "Choose a location and filename", dirname, "", "*.xml", wx.SAVE)
+        dlg = wx.FileDialog(self, "Choose a location and filename", dirname, "", "*.xml", wx.FD_SAVE)
         if dlg.ShowModal() == wx.ID_OK:  # if the user clicked ok then we grabbed a file so load it
             filename = dlg.GetFilename()
             dirname = dlg.GetDirectory()

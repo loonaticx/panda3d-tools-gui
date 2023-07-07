@@ -840,7 +840,8 @@ class main(wx.Frame):
         )
         self.m2e_charNameChk.SetToolTip(
             "Name of the animation character. This should match between all of the model files and all of the channel "
-            "files for a particular model and its associated channels")
+            "files for a particular model and its associated channels"
+        )
         self.m2e_legacyShaderChk.SetToolTip(
             "Turn off modern (Phong) shader generation and treat all shaders as if they were Lamberts (legacy)"
         )
@@ -1076,9 +1077,11 @@ class main(wx.Frame):
         # end wxGlade
 
     def __do_layout(self):
+        """
+        Takes care of adding all the GUI elements to sizers
+        """
         # This was mostly generated in wxGlade, but since it didn't allow for pyCollapsible Pane
         # I had to edit a lot of it by hand.
-        # This function takes care of adding all the GUI elements to sizers
         # A few are not named properly as of now due to their late addition
         # begin wxGlade: main.__do_layout
         tab_panel_sizer = wx.BoxSizer(wx.HORIZONTAL)
@@ -1553,10 +1556,11 @@ class main(wx.Frame):
     ################################
 
     def OnSimpleExport(self, e):
-        # This is essentially the same behavior as a batch export
-        # build up the dictionary that gets passed to Run Export
-        # with all relevant items to a given command and
-        # pass it to RunCommand along with the batchmode boolean
+        """
+        This is essentially the same behavior as a batch export build up the dictionary that gets passed to Run Export
+        with all relevant items to a given command and pass it to RunCommand along with the batchmode boolean
+        """
+
         finput = self.simple_mayaFileTxt.GetValue()
         foutput = self.simple_exportDestTxt.GetValue()
         if ((finput == "") or (foutput == "")):
@@ -1760,7 +1764,9 @@ class main(wx.Frame):
         self.OnRenameInPlace(None)
 
     def OnRenameRemoveEgg(self, event):
-        # remove selected input egg file from eggs list in egg-rename panel
+        """
+        remove selected input egg file from eggs list in egg-rename panel
+        """
         item = self.rename_eggFilesTree.GetSelection()
         if (item != self.rename_eggFilesRoot):
             index = self.rename_eggFilesTree.GetItemText(item).split()[0]
@@ -1771,7 +1777,9 @@ class main(wx.Frame):
         self.OnRenameInPlace(None)
 
     def OnRenameRemoveAllEggs(self, event):
-        # remove all input egg files from eggs list in egg-rename panel
+        """
+        remove all input egg files from eggs list in egg-rename panel
+        """
         self.rename_eggFilesTree.DeleteAllItems()
         if self.rename_eggList != []:
             self.rename_eggList = []
@@ -1779,7 +1787,9 @@ class main(wx.Frame):
         self.OnRenameInPlace(None)
 
     def UpdateEggRenameDisplay(self):
-        # update the tree display of egg file list in egg-rename panel
+        """
+        update the tree display of egg file list in egg-rename panel
+        """
         self.rename_eggFilesTree.DeleteAllItems()
         self.rename_eggFilesRoot = self.rename_eggFilesTree.AddRoot('Egg Files')
         index = 0
@@ -1872,7 +1882,9 @@ class main(wx.Frame):
         self.OnOptcharInPlace(None)
 
     def OnOptcharRemoveEgg(self, event):
-        # remove selected input egg file from eggs list in egg-optchar panel
+        """
+        remove selected input egg file from eggs list in egg-optchar panel
+        """
         item = self.optchar_eggFilesTree.GetSelection()
         if (item != self.optchar_eggFilesRoot):
             index = self.optchar_eggFilesTree.GetItemText(item).split()[0]
@@ -1883,7 +1895,9 @@ class main(wx.Frame):
         self.OnOptcharInPlace(None)
 
     def OnOptcharRemoveAllEggs(self, event):
-        # remove all input egg files from eggs list in egg-optchar panel
+        """
+        remove all input egg files from eggs list in egg-optchar panel
+        """
         self.optchar_eggFilesTree.DeleteAllItems()
         if self.optchar_eggList != []:
             self.optchar_eggList = []
@@ -1891,7 +1905,9 @@ class main(wx.Frame):
         self.OnOptcharInPlace(None)
 
     def UpdateEggOptcharDisplay(self):
-        # update the tree display of egg file list in egg-optchar panel
+        """
+        update the tree display of egg file list in egg-optchar panel
+        """
         self.optchar_eggFilesTree.DeleteAllItems()
         self.optchar_eggFilesRoot = self.optchar_eggFilesTree.AddRoot('Egg Files')
         index = 0
@@ -1903,7 +1919,9 @@ class main(wx.Frame):
         self.OnOptcharInPlace(None)
 
     def OnOptcharInPlace(self, event):
-        # check if we want to use a custom egg file or not for egg-optchar panel
+        """
+        check if we want to use a custom egg file or not for egg-optchar panel
+        """
         if (self.optchar_exportInPlaceChk.GetValue()):
             self.optchar_exportDirTxt.SetValue("")
             self.optchar_exportDirTxt.Disable()
@@ -1974,7 +1992,9 @@ class main(wx.Frame):
         self.OnPalettizeInPlace(None)
 
     def OnPalettizeRemoveEgg(self, e):
-        # remove selected input egg file from multiple eggs panel in egg-palettize panel
+        """
+        remove selected input egg file from multiple eggs panel in egg-palettize panel
+        """
         item = self.palettize_eggFilesTree.GetSelection()
         if (item != self.palettize_eggFilesRoot):
             index = self.palettize_eggFilesTree.GetItemText(item)[0]
@@ -1985,7 +2005,9 @@ class main(wx.Frame):
         self.OnPalettizeInPlace(None)
 
     def OnPalettizeRemoveAllEggs(self, event):
-        # remove all input egg file from multiple eggs panel in egg-palettize panel
+        """
+        remove all input egg file from multiple eggs panel in egg-palettize panel
+        """
         self.palettize_eggFilesTree.DeleteAllItems()
         if self.palettize_eggList != []:
             self.palettize_eggList = []
@@ -1993,7 +2015,9 @@ class main(wx.Frame):
         self.OnPalettizeInPlace(None)
 
     def UpdateEggPalettizeDisplay(self):
-        # update the output of the selected egg files of multiple eggs panel in egg-palettize panel
+        """
+        update the output of the selected egg files of multiple eggs panel in egg-palettize panel
+        """
         self.palettize_eggFilesTree.DeleteAllItems()
         self.palettize_eggFilesRoot = self.palettize_eggFilesTree.AddRoot('Egg Files')
         index = 0
@@ -2005,7 +2029,9 @@ class main(wx.Frame):
         self.OnPalettizeInPlace(None)
 
     def OnPalettizeInPlace(self, event):
-        # check if we want to use a custom egg file or not for egg-palettize panel
+        """
+        check if we want to use a custom egg file or not for egg-palettize panel
+        """
         if (self.palettize_exportInPlaceChk.GetValue()):
             self.palettize_exportDirTxt.SetValue("")
             self.palettize_exportDirTxt.Disable()
@@ -2026,7 +2052,9 @@ class main(wx.Frame):
                 self.palettize_exportFileBtn.Enable()
 
     def OnPalettizeExportFile(self, event):
-        # choose output egg for egg-palettize panel
+        """
+        choose output egg for egg-palettize panel
+        """
         dirname = ''
         dlg = wx.FileDialog(self, "Choose a location and filename", dirname, "", "*.egg", wx.FD_SAVE)
         if dlg.ShowModal() == wx.ID_OK:  # if the user clicked ok then we grabbed a file so load it
@@ -2036,14 +2064,18 @@ class main(wx.Frame):
         dlg.Destroy()  # otherwise just kill the file dialog
 
     def OnPalettizeExportDir(self, event):
-        # choose the output directory in egg-palettize panel
+        """
+        choose the output directory in egg-palettize panel
+        """
         dlg = wx.DirDialog(self, "Choose the output directory:")
         if dlg.ShowModal() == wx.ID_OK:  # if the user clicked ok then we grabbed a file so load it
             self.palettize_exportDirTxt.SetValue(dlg.GetPath())
         dlg.Destroy()
 
     def OnPalettizeExportTex(self, event):
-        # choose the output texture directory of single egg panel in egg-palettize panel
+        """
+        choose the output texture directory of single egg panel in egg-palettize panel
+        """
         dlg = wx.DirDialog(self, "Choose your Output Texture directory:")
         if dlg.ShowModal() == wx.ID_OK:  # if the user clicked ok then we grabbed a file so load it
             self.palettize_exportTexTxt.SetValue(dlg.GetPath())
@@ -2086,7 +2118,9 @@ class main(wx.Frame):
         dlg.Destroy()
 
     def OnPalettizeSaveTxa(self, event):
-        # save all the attributes to the .txa file for egg-palettize panel
+        """
+        save all the attributes to the .txa file for egg-palettize panel
+        """
         filename = ''
         dirname = ''
         dlg = wx.FileDialog(self, "Choose a location and filename", dirname, "", "*.txa", wx.FD_SAVE)
@@ -2141,7 +2175,9 @@ class main(wx.Frame):
         return batchList
 
     def GetOutputFromBatch(self, index=-1):
-        # Extract all output files from selected items in the batch
+        """
+        Extract all output files from selected items in the batch
+        """
         if (index != -1):
             batchList = [self.batchList[index]]
         else:
@@ -2189,7 +2225,9 @@ class main(wx.Frame):
             self.addEggPalettizeToBatch()
 
     def addMaya2EggToBatch(self, editItemIndex=-1):
-        # add command line to batch list for maya2egg panel
+        """
+        add command line to batch list for maya2egg panel
+        """
         finput = self.m2e_mayaFileTxt.GetValue()
         foutput = self.m2e_exportDestTxt.GetValue()
         if ((finput == "") or (foutput == "")):
@@ -2387,7 +2425,9 @@ class main(wx.Frame):
             self.AddToBatchDisplay(batchItemInfo)
 
     def AddToBatchDisplay(self, batchItemInfo):
-        # add items to the display for batch list
+        """
+        add items to the display for batch list
+        """
         label = self.GetBatchItemLabel(batchItemInfo)
         self.SetStatusText("Batch item added: " + label)
 
@@ -2403,7 +2443,9 @@ class main(wx.Frame):
         return label
 
     def BuildMaya2EggArgs(self):
-        # Build up all the command line arguments present in the maya2egg panel
+        """
+        Build up all the command line arguments present in the maya2egg panel
+        """
         args = {}
         args['a'] = self.m2e_animOptChoice.GetStringSelection()
         args['ui'] = UNIT_TYPES[self.m2e_mayaUnitsComboBox.GetSelection()]
@@ -2441,7 +2483,9 @@ class main(wx.Frame):
         return args
 
     def BuildEgg2BamArgs(self):
-        # Build up all the command line arguments present in the egg2bam panel
+        """
+        Build up all the command line arguments present in the egg2bam panel
+        """
         args = {}
 
         if (self.e2b_flattenChk.GetValue()):
@@ -2452,7 +2496,9 @@ class main(wx.Frame):
         return args
 
     def BuildEggRenameArgs(self):
-        # Build up all the command line arguments present in the egg-rename panel
+        """
+        Build up all the command line arguments present in the egg-rename panel
+        """
         args = {}
 
         if (self.rename_exportInPlaceChk.GetValue()):
@@ -2465,7 +2511,9 @@ class main(wx.Frame):
         return args
 
     def BuildEggOptcharArgs(self):
-        # Build up all the command line arguments present in the egg-optchar panel
+        """
+        Build up all the command line arguments present in the egg-optchar panel
+        """
         args = {}
 
         if (self.optchar_exportInPlaceChk.GetValue()):

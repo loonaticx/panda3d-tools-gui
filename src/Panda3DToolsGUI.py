@@ -272,7 +272,7 @@ class main(wx.Frame):
         kwds["style"] = wx.DEFAULT_FRAME_STYLE
         wx.Frame.__init__(self, *args, **kwds)
 
-        self.SetIcon(wx.Icon("pandaIcon.ico", wx.BITMAP_TYPE_ICO))
+        self.SetIcon(wx.Icon("assets/pandaIcon.ico", wx.BITMAP_TYPE_ICO))
 
         self.pandaPathDir = ''
 

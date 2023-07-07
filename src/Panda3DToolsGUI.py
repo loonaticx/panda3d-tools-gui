@@ -1482,7 +1482,7 @@ class main(wx.Frame):
     def OnSimpleMayaFile(self, e):
         # choose the input maya scene for simple mode
         dirname = ''
-        dlg = wx.FileDialog(self, "Choose a location and filename", dirname, "", "*.mb", wx.OPEN)
+        dlg = wx.FileDialog(self, "Choose a location and filename", dirname, "", "*.mb", wx.FD_OPEN)
         if dlg.ShowModal() == wx.ID_OK:  # if the user clicked ok then we grabbed a file so load it
             filename = dlg.GetFilename()
             dirname = dlg.GetDirectory()
@@ -1511,7 +1511,7 @@ class main(wx.Frame):
                 self.srcProjectFolder += item + "\\"
             self.srcProjectFolder = self.srcProjectFolder.split(item + '\\')[0]
 
-        dlg = wx.FileDialog(self, "Choose an Egg file to load", self.srcProjectFolder, "", "*.mb", wx.OPEN)
+        dlg = wx.FileDialog(self, "Choose an Egg file to load", self.srcProjectFolder, "", "*.mb", wx.FD_OPEN)
         if dlg.ShowModal() == wx.ID_OK:  # if the user clicked ok then we grabbed a file so load it
             filename = dlg.GetFilename()
             self.srcProjectFolder = dlg.GetDirectory()
@@ -1581,7 +1581,7 @@ class main(wx.Frame):
         # choose the input egg file for egg2bam
         filename = ''
         dirname = ''
-        dlg = wx.FileDialog(self, "Choose an Egg file to BAM", dirname, "", "*.egg", wx.OPEN)
+        dlg = wx.FileDialog(self, "Choose an Egg file to BAM", dirname, "", "*.egg", wx.FD_OPEN)
         if dlg.ShowModal() == wx.ID_OK:  # if the user clicked ok then we grabbed a file so load it
             self.filename = dlg.GetFilename()
             dirname = dlg.GetDirectory()
@@ -1938,7 +1938,7 @@ class main(wx.Frame):
 
     def OnPalettizeLoadTxa(self, event):
         dirname = ''
-        dlg = wx.FileDialog(self, "Choose a .txa file to use", dirname, "", "*.txa", wx.OPEN)
+        dlg = wx.FileDialog(self, "Choose a .txa file to use", dirname, "", "*.txa", wx.FD_OPEN)
         if dlg.ShowModal() == wx.ID_OK:  # if the user clicked ok then we grabbed a file so load it
             filename = dlg.GetFilename()
             dirname = dlg.GetDirectory()
@@ -2570,7 +2570,7 @@ class main(wx.Frame):
         # load saved bacth list
         dirname = self.destProjectFolder
         filename = ''
-        dlg = wx.FileDialog(self, "Load Preferences file...", dirname, "", "*.xml", wx.OPEN)
+        dlg = wx.FileDialog(self, "Load Preferences file...", dirname, "", "*.xml", wx.FD_OPEN)
         if dlg.ShowModal() == wx.ID_OK:  # if the user clicked ok then we grabbed a file so load it
             filename = dlg.GetFilename()
             dirname = dlg.GetDirectory()
@@ -3152,7 +3152,7 @@ class main(wx.Frame):
     def OnLoadPrefs(self, event):  # wxGlade: main.<event_handler>
         # load preferences
         dirname = ''
-        dlg = wx.FileDialog(self, "Choose a location and filename", dirname, "", "*.xml", wx.OPEN)
+        dlg = wx.FileDialog(self, "Choose a location and filename", dirname, "", "*.xml", wx.FD_OPEN)
         if dlg.ShowModal() == wx.ID_OK:  # if the user clicked ok then we grabbed a file so load it
             filename = dlg.GetFilename()
             dirname = dlg.GetDirectory()

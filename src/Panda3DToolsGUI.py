@@ -1639,8 +1639,10 @@ class main(wx.Frame):
             for filename in filenames:
                 eggInfo = os.path.join(dirname + os.sep, filename)
                 self.rename_eggList.append(eggInfo)
-                self.rename_eggFilesTree.Append(self.rename_eggFilesRoot,
-                                                    str(len(self.rename_eggList)) + ' ' + eggInfo)
+                self.rename_eggFilesTree.AppendItem(
+                    self.rename_eggFilesRoot,
+                    str(len(self.rename_eggList)) + ' ' + eggInfo
+                )
                 self.rename_eggFilesTree.ExpandAll()
 
         dlg.Destroy()  # otherwise just kill the file dialog
@@ -1650,7 +1652,10 @@ class main(wx.Frame):
     def OnRenameAddFromBatch(self, event):
         for eggInfo in self.GetOutputFromBatch():
             self.rename_eggList.append(eggInfo)
-            self.rename_eggFilesTree.Append(self.rename_eggFilesRoot, str(len(self.rename_eggList)) + ' ' + eggInfo)
+            self.rename_eggFilesTree.AppendItem(
+                self.rename_eggFilesRoot,
+                str(len(self.rename_eggList)) + ' ' + eggInfo
+            )
             self.rename_eggFilesTree.ExpandAll()
         self.OnRenameInPlace(None)
 
@@ -1681,7 +1686,7 @@ class main(wx.Frame):
         for item in self.rename_eggList:
             index += 1
             treeitem = item
-            self.rename_eggFilesTree.Append(self.rename_eggFilesRoot, str(index) + ' ' + str(treeitem))
+            self.rename_eggFilesTree.AppendItem(self.rename_eggFilesRoot, str(index) + ' ' + str(treeitem))
         self.rename_eggFilesTree.ExpandAll()
         self.OnRenameInPlace(None)
 
@@ -1746,8 +1751,10 @@ class main(wx.Frame):
             for filename in filenames:
                 eggInfo = os.path.join(dirname + os.sep, filename)
                 self.optchar_eggList.append(eggInfo)
-                self.optchar_eggFilesTree.Append(self.optchar_eggFilesRoot,
-                                                     str(len(self.optchar_eggList)) + ' ' + eggInfo)
+                self.optchar_eggFilesTree.AppendItem(
+                    self.optchar_eggFilesRoot,
+                    str(len(self.optchar_eggList)) + ' ' + eggInfo
+                )
                 self.optchar_eggFilesTree.ExpandAll()
 
         dlg.Destroy()  # otherwise just kill the file dialog
@@ -1757,7 +1764,7 @@ class main(wx.Frame):
     def OnOptcharAddFromBatch(self, event):
         for eggInfo in self.GetOutputFromBatch():
             self.optchar_eggList.append(eggInfo)
-            self.optchar_eggFilesTree.Append(self.optchar_eggFilesRoot,
+            self.optchar_eggFilesTree.AppendItem(self.optchar_eggFilesRoot,
                                                  str(len(self.optchar_eggList)) + ' ' + eggInfo)
             self.optchar_eggFilesTree.ExpandAll()
         self.OnOptcharInPlace(None)
@@ -1789,7 +1796,7 @@ class main(wx.Frame):
         for item in self.optchar_eggList:
             index += 1
             treeitem = item
-            self.optchar_eggFilesTree.Append(self.optchar_eggFilesRoot, str(index) + ' ' + str(treeitem))
+            self.optchar_eggFilesTree.AppendItem(self.optchar_eggFilesRoot, str(index) + ' ' + str(treeitem))
         self.optchar_eggFilesTree.ExpandAll()
         self.OnOptcharInPlace(None)
 
@@ -1845,8 +1852,10 @@ class main(wx.Frame):
             for filename in filenames:
                 eggInfo = os.path.join(dirname + os.sep, filename)
                 self.palettize_eggList.append(eggInfo)
-                self.palettize_eggFilesTree.Append(self.palettize_eggFilesRoot,
-                                                       str(len(self.palettize_eggList)) + ' ' + eggInfo)
+                self.palettize_eggFilesTree.AppendItem(
+                    self.palettize_eggFilesRoot,
+                    str(len(self.palettize_eggList)) + ' ' + eggInfo
+                )
                 self.palettize_eggFilesTree.ExpandAll()
 
         dlg.Destroy()  # otherwise just kill the file dialog
@@ -1855,8 +1864,10 @@ class main(wx.Frame):
     def OnPalettizeAddFromBatch(self, event):
         for eggInfo in self.GetOutputFromBatch():
             self.palettize_eggList.append(eggInfo)
-            self.palettize_eggFilesTree.Append(self.palettize_eggFilesRoot,
-                                                   str(len(self.palettize_eggList)) + ' ' + eggInfo)
+            self.palettize_eggFilesTree.AppendItem(
+                self.palettize_eggFilesRoot,
+                str(len(self.palettize_eggList)) + ' ' + eggInfo
+            )
             self.palettize_eggFilesTree.ExpandAll()
         self.OnPalettizeInPlace(None)
 
@@ -1887,7 +1898,7 @@ class main(wx.Frame):
         for item in self.palettize_eggList:
             index += 1
             treeitem = item
-            self.palettize_eggFilesTree.Append(self.palettize_eggFilesRoot, str(index) + ' ' + str(treeitem))
+            self.palettize_eggFilesTree.AppendItem(self.palettize_eggFilesRoot, str(index) + ' ' + str(treeitem))
         self.palettize_eggFilesTree.ExpandAll()
         self.OnPalettizeInPlace(None)
 
@@ -2250,7 +2261,7 @@ class main(wx.Frame):
         label = self.GetBatchItemLabel(batchItemInfo)
         self.SetStatusText("Batch item added: " + label)
 
-        self.batchTree.Append(self.treeRoot, str(len(self.batchList)) + ' ' + label)
+        self.batchTree.AppendItem(self.treeRoot, str(len(self.batchList)) + ' ' + label)
         self.batchTree.ExpandAll()
 
     def GetBatchItemLabel(self, batchItemInfo):
@@ -2436,7 +2447,7 @@ class main(wx.Frame):
         for batchItemInfo in self.batchList:
             index += 1
             label = self.GetBatchItemLabel(batchItemInfo)
-            self.batchTree.Append(self.treeRoot, str(index) + ' ' + label)
+            self.batchTree.AppendItem(self.treeRoot, str(index) + ' ' + label)
         self.batchTree.ExpandAll()
 
     def OnRemoveAllBatch(self, event):

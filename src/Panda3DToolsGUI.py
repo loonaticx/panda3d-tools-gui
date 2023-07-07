@@ -1492,7 +1492,7 @@ class main(wx.Frame):
     def OnSimpleExportDest(self, e):
         # choose the output egg file for simple mode
         dirname = ''
-        dlg = wx.FileDialog(self, "Choose a location and filename", dirname, "", "*.egg", wx.SAVE)
+        dlg = wx.FileDialog(self, "Choose a location and filename", dirname, "", "*.egg", wx.FD_SAVE)
         if dlg.ShowModal() == wx.ID_OK:  # if the user clicked ok then we grabbed a file so load it
             filename = dlg.GetFilename()
             dirname = dlg.GetDirectory()
@@ -1529,7 +1529,7 @@ class main(wx.Frame):
                 self.destProjectFolder += item + "\\"
             self.destProjectFolder = self.destProjectFolder.split(item + '\\')[0]
 
-        dlg = wx.FileDialog(self, "Choose an Egg file to load", self.destProjectFolder, "", "*.egg", wx.SAVE)
+        dlg = wx.FileDialog(self, "Choose an Egg file to load", self.destProjectFolder, "", "*.egg", wx.FD_SAVE)
         if dlg.ShowModal() == wx.ID_OK:  # if the user clicked ok then we grabbed a file so load it
             filename = dlg.GetFilename()
             self.destProjectFolder = dlg.GetDirectory()
@@ -1591,7 +1591,7 @@ class main(wx.Frame):
     def OnEgg2BamExportDest(self, event):
         # choose the output bam file for egg2bam
         dirname = ''
-        dlg = wx.FileDialog(self, "Choose an Egg file to load", dirname, "", "*.bam", wx.SAVE)
+        dlg = wx.FileDialog(self, "Choose an Egg file to load", dirname, "", "*.bam", wx.FD_SAVE)
         if dlg.ShowModal() == wx.ID_OK:  # if the user clicked ok then we grabbed a file so load it
             self.filename = dlg.GetFilename()
             dirname = dlg.GetDirectory()
@@ -1631,7 +1631,7 @@ class main(wx.Frame):
     def OnRenameAddEgg(self, event):
         filename = ''
         dirname = self.destProjectFolder
-        dlg = wx.FileDialog(self, "Choose your input egg files", dirname, "", "*.egg", wx.MULTIPLE)
+        dlg = wx.FileDialog(self, "Choose your input egg files", dirname, "", "*.egg", wx.FD_MULTIPLE)
         if dlg.ShowModal() == wx.ID_OK:  # if the user clicked ok then we grabbed a file so load it
             filenames = dlg.GetFilenames()
             dirname = dlg.GetDirectory()
@@ -1714,7 +1714,7 @@ class main(wx.Frame):
                 self.destProjectFolder += item + "\\"
             self.destProjectFolder = self.destProjectFolder.split(item + '\\')[0]
 
-        dlg = wx.FileDialog(self, "Choose a location and filename", self.destProjectFolder, "", "*.egg", wx.SAVE)
+        dlg = wx.FileDialog(self, "Choose a location and filename", self.destProjectFolder, "", "*.egg", wx.FD_SAVE)
         if dlg.ShowModal() == wx.ID_OK:  # if the user clicked ok then we grabbed a file so load it
             filename = dlg.GetFilename()
             self.destProjectFolder = dlg.GetDirectory()
@@ -1738,7 +1738,7 @@ class main(wx.Frame):
     def OnOptcharAddEgg(self, event):
         filename = ''
         dirname = ''
-        dlg = wx.FileDialog(self, "Choose your input egg files", dirname, "", "*.egg", wx.MULTIPLE)
+        dlg = wx.FileDialog(self, "Choose your input egg files", dirname, "", "*.egg", wx.FD_MULTIPLE)
         if dlg.ShowModal() == wx.ID_OK:  # if the user clicked ok then we grabbed a file so load it
             filenames = dlg.GetFilenames()
             dirname = dlg.GetDirectory()
@@ -1817,7 +1817,7 @@ class main(wx.Frame):
     def OnOptcharExportFile(self, event):
         # choose output egg for egg-optchar panel
         dirname = ''
-        dlg = wx.FileDialog(self, "Choose a location and filename", dirname, "", "*.egg", wx.SAVE)
+        dlg = wx.FileDialog(self, "Choose a location and filename", dirname, "", "*.egg", wx.FD_SAVE)
         if dlg.ShowModal() == wx.ID_OK:  # if the user clicked ok then we grabbed a file so load it
             filename = dlg.GetFilename()
             dirname = dlg.GetDirectory()
@@ -1837,7 +1837,7 @@ class main(wx.Frame):
         # add input egg file in egg-palettize panel
         filename = ''
         dirname = ''
-        dlg = wx.FileDialog(self, "Choose your input egg files", dirname, "", "*.egg", wx.MULTIPLE)
+        dlg = wx.FileDialog(self, "Choose your input egg files", dirname, "", "*.egg", wx.FD_MULTIPLE)
         if dlg.ShowModal() == wx.ID_OK:  # if the user clicked ok then we grabbed a file so load it
             filenames = dlg.GetFilenames()
             dirname = dlg.GetDirectory()
@@ -1915,7 +1915,7 @@ class main(wx.Frame):
     def OnPalettizeExportFile(self, event):
         # choose output egg for egg-palettize panel
         dirname = ''
-        dlg = wx.FileDialog(self, "Choose a location and filename", dirname, "", "*.egg", wx.SAVE)
+        dlg = wx.FileDialog(self, "Choose a location and filename", dirname, "", "*.egg", wx.FD_SAVE)
         if dlg.ShowModal() == wx.ID_OK:  # if the user clicked ok then we grabbed a file so load it
             filename = dlg.GetFilename()
             dirname = dlg.GetDirectory()
@@ -1976,7 +1976,7 @@ class main(wx.Frame):
         # save all the attributes to the .txa file for egg-palettize panel
         filename = ''
         dirname = ''
-        dlg = wx.FileDialog(self, "Choose a location and filename", dirname, "", "*.txa", wx.SAVE)
+        dlg = wx.FileDialog(self, "Choose a location and filename", dirname, "", "*.txa", wx.FD_SAVE)
         if dlg.ShowModal() == wx.ID_OK:  # if the user clicked ok then we grabbed a file so load it
             filename = dlg.GetFilename()
             dirname = dlg.GetDirectory()
@@ -3137,7 +3137,7 @@ class main(wx.Frame):
 
         filename = ''
         dirname = ''
-        dlg = wx.FileDialog(self, "Choose a location and filename", dirname, "", "*.xml", wx.SAVE)
+        dlg = wx.FileDialog(self, "Choose a location and filename", dirname, "", "*.xml", wx.FD_SAVE)
         if dlg.ShowModal() == wx.ID_OK:  # if the user clicked ok then we grabbed a file so load it
             filename = dlg.GetFilename()
             dirname = dlg.GetDirectory()
